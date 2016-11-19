@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cIB-bm-dj4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Weather-->
+        <scene sceneID="jrL-vZ-N20">
+            <objects>
+                <tableViewController id="eSi-qR-CbP" customClass="WeatherTableViewController" customModule="CustomViews" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="GD2-7n-KwC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="100" id="vjr-3t-8hc" customClass="WeatherCell" customModule="CustomViews" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vjr-3t-8hc" id="5kN-X9-NM1">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjW-UF-4X8" customClass="WeatherView" customModule="CustomViews" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="gjW-UF-4X8" firstAttribute="leading" secondItem="5kN-X9-NM1" secondAttribute="leading" id="29x-fZ-bsv"/>
+                                        <constraint firstAttribute="trailing" secondItem="gjW-UF-4X8" secondAttribute="trailing" id="E6F-F9-oC6"/>
+                                        <constraint firstAttribute="bottom" secondItem="gjW-UF-4X8" secondAttribute="bottom" id="JmU-jY-ekA"/>
+                                        <constraint firstItem="gjW-UF-4X8" firstAttribute="top" secondItem="5kN-X9-NM1" secondAttribute="top" id="hUQ-Qq-1P9"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="weatherView" destination="gjW-UF-4X8" id="kYF-IW-dB3"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eSi-qR-CbP" id="eDy-Rr-db1"/>
+                            <outlet property="delegate" destination="eSi-qR-CbP" id="IaP-uk-K88"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Weather" id="iow-Sg-gva"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-q0-tfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="82.3088455772114"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qBL-HP-4U7">
+            <objects>
+                <navigationController id="cIB-bm-dj4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJm-pW-Fbf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eSi-qR-CbP" kind="relationship" relationship="rootViewController" id="wp4-8N-H4K"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zr1-AB-k2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-215.19999999999999" y="82.3088455772114"/>
+        </scene>
+    </scenes>
+</document>
