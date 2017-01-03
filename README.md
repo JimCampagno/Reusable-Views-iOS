@@ -6,5 +6,5 @@ This project accompanies these YouTube videos:
 
 [Custom Reusable Views - 2](https://youtu.be/LKxirladjDQ)
 
-
+[Custom Detail View](https://youtu.be/DGyyqQm2V2k)
 
