@@ -19,6 +19,26 @@ class WeatherTableViewController: UITableViewController {
        
         
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedWeather = forecast.days[indexPath.row]
+        performSegue(withIdentifier: "DetailSegue", sender: selectedWeather)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let selectedWeather = sender as! Weather
+        
+        let destVC = segue.destination as! DetailWeatherViewController
+        
+        destVC.weather = selectedWeather
+        
+    }
+    
+    
+    
+    
+   
 
 }
 

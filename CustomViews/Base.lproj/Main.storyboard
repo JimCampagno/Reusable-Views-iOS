@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cIB-bm-dj4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cIB-bm-dj4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -18,11 +20,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="100" id="vjr-3t-8hc" customClass="WeatherCell" customModule="CustomViews" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="WeatherCell" rowHeight="100" id="vjr-3t-8hc" customClass="WeatherCell" customModule="CustomViews" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vjr-3t-8hc" id="5kN-X9-NM1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gjW-UF-4X8" customClass="WeatherView" customModule="CustomViews" customModuleProvider="target">
@@ -48,10 +50,48 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Weather" id="iow-Sg-gva"/>
+                    <connections>
+                        <segue destination="fzb-hJ-XaI" kind="presentation" identifier="DetailSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="BjZ-5g-2ec"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8jm-q0-tfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="724" y="82.3088455772114"/>
+        </scene>
+        <!--Detail Weather View Controller-->
+        <scene sceneID="oQB-qa-xGb">
+            <objects>
+                <viewController id="fzb-hJ-XaI" customClass="DetailWeatherViewController" customModule="CustomViews" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OrP-uH-CEg"/>
+                        <viewControllerLayoutGuide type="bottom" id="Nbl-i6-rZB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9JA-Rp-gfp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gkx-q4-gcT" customClass="WeatherDetail" customModule="CustomViews" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="217.5" width="300" height="165.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Gkx-q4-gcT" secondAttribute="height" multiplier="388:214" id="Ymy-Vn-dIA"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.80000000000000004" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gkx-q4-gcT" firstAttribute="centerX" secondItem="9JA-Rp-gfp" secondAttribute="centerX" id="KoC-fp-8zZ"/>
+                            <constraint firstItem="Gkx-q4-gcT" firstAttribute="centerY" secondItem="9JA-Rp-gfp" secondAttribute="centerY" multiplier="0.9" id="LI3-hj-yLo"/>
+                            <constraint firstItem="Gkx-q4-gcT" firstAttribute="width" secondItem="9JA-Rp-gfp" secondAttribute="width" multiplier="0.8" id="g4o-mT-nui"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="weatherDetailView" destination="Gkx-q4-gcT" id="beV-eU-GHU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVR-OB-PD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1614" y="82"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qBL-HP-4U7">
